@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import PledgeModal from "./PledgeModal";
 import SuccessModal from "./SuccessModal";
+import { GoBookmarkFill } from "react-icons/go";
+
 
 const crowdfundingData = {
   totalFunds: 100000,
@@ -9,8 +11,8 @@ const crowdfundingData = {
   daysLeft: 56,
   pledges: [
     { id: 1, amount: 25, label: "Bamboo Stand", description: "You get an ergonomic stand made of natural bamboo. You've helped us  launch our promotional campaign, and you'll be added to a special Backer member list", slots: 101 },
-    { id: 2, amount: 50, label: "Black Edition Stand", description: "You get a Black Special Edition computer stand and a personal thank you. You'll be added to our Backer member list. Shipping is included", slots: 64 },
-    { id: 3, amount: 100, label: "Mahogany Special Edition", description: "Receive a special edition product.", slots: 25 },
+    { id: 2, amount: 75, label: "Black Edition Stand", description: "You get a Black Special Edition computer stand and a personal thank you. You'll be added to our Backer member list. Shipping is included", slots: 64 },
+    { id: 3, amount: 200, label: "Mahogany Special Edition", description: "You get two Special Edition Mahogany stands, a Backer T-Shirt and a personal thank you. You'll be added to our Backer member list. Shopping is included ", slots: 25 },
   ]
 };
 
@@ -42,37 +44,40 @@ export default function Crowdfunding() {
 
   return (
     <div>
-     <h1>Mastercraft Bamboo Monitor Riser</h1>
-  <p> A beautifully handcrafted monitor stand to reduce neck and eye strain</p>
-      <div className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg mt-4">
+      <div className='max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg mt-4 '>
+     <h1 className='text-center'>Mastercraft Bamboo Monitor Riser</h1>
+  <p className='text-center'> A beautifully handcrafted monitor stand to reduce neck and eye strain</p>
+   
         <div className="flex justify-between items-center">
           
-          <div className="flex gap-2">
-            <button onClick={() => setBookmarked(!bookmarked)} className={`p-2 rounded-full ${bookmarked ? 'bg-green-400' : 'bg-gray-200'}`}>
-              {bookmarked ? "✓ Bookmarked" : "☆ Bookmark"}
+          <div className="flex gap-2 text-center  justify-center items-center md:flex md:justify-between">
+            <button onClick={() => setShowPledgeModal(true)} className="p-2 rounded-full w-60 bg-teal-500 text-white hover:bg-teal-700">
+             Back this Project
             </button>
-            <button onClick={() => setShowPledgeModal(true)} className="p-2 rounded bg-blue-500 text-white hover:bg-blue-600">
-              Make a Pledge
+            <button onClick={() => setBookmarked(!bookmarked)} className={`p-3 rounded-full ${bookmarked ? 'bg-gray-400' : 'bg-gray-200'}`}>
+              {bookmarked ? "✓ Bookmarked" : <GoBookmarkFill />}
             </button>
+           
           </div>
         </div>
 
-        <div className="my-4 text-sm text-gray-600 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-           <p> ${crowdfundingData.currentFunds.toLocaleString()} <span>of ${crowdfundingData.totalFunds.toLocaleString()} </span> </p>
-           <p> {backers.toLocaleString()} <span>total backers</span></p>
-        <p> {crowdfundingData.daysLeft} <span>days left</span>
+        <div className="my-4 text-3xl text-gray-600 flex flex-col   md:flex-row justify-between items-center md:items-center gap-4 md:text-lg">
+           <p className='font-bold text-black flex flex-col text-center p-2'> ${crowdfundingData.currentFunds.toLocaleString()} <span className='text-sm font-semibold pt-2  text-gray-500'>of ${crowdfundingData.totalFunds.toLocaleString()} </span> </p>
+           <p className='font-bold text-black flex flex-col text-center p-2'> {backers.toLocaleString()} <span className='text-sm font-semibold pt-2 text-gray-500'>total backers</span></p>
+        <p className='font-bold text-black flex flex-col text-center p-2'> {crowdfundingData.daysLeft} <span className='text-sm font-semibold pt-2  text-gray-500'>days left</span>
         </p>
         </div>
 
         <div className="my-4">
           <div className="w-full bg-gray-300 h-4 rounded-lg overflow-hidden">
             <div
-              className="h-full bg-blue-500 transition-all"
+              className="h-full bg-teal-500 transition-all"
               style={{ width: `${(fundsRaised / crowdfundingData.totalFunds) * 100}%` }}
             ></div>
           </div>
       
-        </div>
+        </div></div>
+          <div className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg mt-4"> 
   <div>
     <h1>About this project</h1>
     <p>The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform that elevates yours screen to a more comfortable viewing height. Placing your monitor at eye level has the potential to improve your posture and make you more comfortable while at work, helping you stay focused  on the task at hand. </p>
@@ -85,7 +90,7 @@ export default function Crowdfunding() {
           {pledges.map((pledge) => (
             <div key={pledge.id} className={`border p-3 rounded mb-3 ${pledge.slots <= 0 ? 'opacity-50' : ''}`}>
               <strong>{pledge.label}</strong>
-              <p>Pledge ${pledge.amount} or more</p>
+              <p className='text-teal-500'>Pledge ${pledge.amount} or more</p>
               <p className="text-sm text-gray-600">{pledge.description}</p>
               <p className="text-xs text-gray-500 mt-1">{pledge.slots} <span>left</span></p>
               <button
@@ -97,7 +102,7 @@ export default function Crowdfunding() {
                     setShowPledgeModal(true);
                   }
                 }}
-                className={`mt-2 px-3 py-1 rounded-full ${pledge.slots > 0 ? 'bg-blue-500 text-white hover:bg-blue-600' : 'bg-gray-300 text-gray-600 cursor-not-allowed'}`}
+                className={`mt-2 px-3 py-1 rounded-full ${pledge.slots > 0 ? 'bg-teal-500 text-white hover:bg-teal-600' : 'bg-gray-300 text-gray-600 cursor-not-allowed'}`}
               >
                 Select Reward
               </button>
