@@ -10,11 +10,11 @@ export default function Navbar (){
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex gap-6 px-15">
-          {["About", "Careers", "Events", "Products", "Support"].map((item) => (
+          {["About", "Discover", "Get Started"].map((item) => (
             <a
               key={item}
               href="#"
-              className="hover:text-purple-300 transition duration-200 text-sm"
+              className="hover:text-teal-500 transition duration-200 text-sm"
             >
               {item}
             </a>
@@ -34,12 +34,12 @@ export default function Navbar (){
 
         {/* Mobile Menu */}
         {menuOpen && (
-          <nav className="absolute top-full left-0 right-0 bg-black text-white flex flex-col items-center py-4 space-y-4 md:hidden shadow-md">
-            {["About", "Careers", "Events", "Products", "Support"].map((item) => (
+          <nav className="absolute top-full left-0 right-0 bg-white text-black flex flex-col items-center py-4 space-y-4 md:hidden shadow-md">
+            {["About", "Discover", "Get Started",].map((item) => (
               <a
                 key={item}
                 href="#"
-                className="hover:text-purple-300 text-lg transition duration-200"
+                className="hover:text-teal-500 text-lg transition duration-200"
               >
                 {item}
               </a>

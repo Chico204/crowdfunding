@@ -44,9 +44,14 @@ export default function Crowdfunding() {
 
   return (
     <div>
-      <div className='max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg mt-4 '>
-     <h1 className='text-center'>Mastercraft Bamboo Monitor Riser</h1>
-  <p className='text-center'> A beautifully handcrafted monitor stand to reduce neck and eye strain</p>
+      <div className='max-w-sm mx-auto p-6 bg-white shadow-md rounded-lg mt-4 relative -top-20 md:max-w-lg'>
+        <img
+    src="/images/logo-mastercraft.svg"
+    alt="MASTERCRAFT"
+    className="w-20 mx-auto relative -top-10"
+  />
+     <h1 className='text-center text-2xl font-bold'>Mastercraft Bamboo Monitor Riser</h1>
+  <p className='text-center p-2 pb-6'> A beautifully handcrafted monitor stand to reduce neck and eye strain</p>
    
         <div className="flex justify-between items-center">
           
@@ -77,11 +82,11 @@ export default function Crowdfunding() {
           </div>
       
         </div></div>
-          <div className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg mt-4"> 
+          <div className="max-w-sm mx-auto p-6 bg-white shadow-md rounded-lg mt-4 md:max-w-lg relative -top-10"> 
   <div>
-    <h1>About this project</h1>
-    <p>The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform that elevates yours screen to a more comfortable viewing height. Placing your monitor at eye level has the potential to improve your posture and make you more comfortable while at work, helping you stay focused  on the task at hand. </p>
-    <p>
+    <h1 className='font-bold text-xl '>About this project</h1>
+    <p className=' text-gray-500'>The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform that elevates yours screen to a more comfortable viewing height. Placing your monitor at eye level has the potential to improve your posture and make you more comfortable while at work, helping you stay focused  on the task at hand. </p>
+    <p className='pt-8  text-gray-500'>
         Featuring artisan craftsmanship, the simplicity of the design creates extra desk space below your computer to allow notepads, pens, and USB sticks to be stored under the stand.
     </p>
   </div>
@@ -92,7 +97,7 @@ export default function Crowdfunding() {
               <strong>{pledge.label}</strong>
               <p className='text-teal-500'>Pledge ${pledge.amount} or more</p>
               <p className="text-sm text-gray-600">{pledge.description}</p>
-              <p className="text-xs text-gray-500 mt-1">{pledge.slots} <span>left</span></p>
+              <p className="text-xl mt-1 text-teal-500">{pledge.slots} <span className=' text-gray-500 text-xs items-center'>left</span></p>
               <button
                 disabled={pledge.slots <= 0}
                 onClick={() => {

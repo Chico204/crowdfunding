@@ -2,20 +2,20 @@ export default function PledgeModal({ pledges, selectedId, customAmount, onChang
   const selectedPledge = pledges.find(p => p.id === selectedId);
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white p-6 rounded-lg w-full max-w-md shadow-lg relative">
+    <div className="fixed inset-0 bg-[#20202062]  flex items-center justify-center z-50">
+      <div className="bg-white p-6 rounded-lg w-full max-w-md shadow-lg relative ">
         <button
           onClick={onClose}
           className="absolute top-2 right-2 text-gray-500 hover:text-black text-xl font-bold"
         >
           ×
         </button>
-        <h2 className="text-xl font-semibold mb-4">Select a Pledge</h2>
+        <h2 className="text-xl font-semibold mb-4">BAck this project</h2>
         <form onSubmit={e => { e.preventDefault(); onConfirm(); }}>
           {pledges.map((pledge) => (
             <label
               key={pledge.id}
-              className={`block border rounded p-3 my-2 cursor-pointer ${pledge.slots <= 0 ? 'opacity-50 cursor-not-allowed' : ''} ${selectedId === pledge.id ? 'border-blue-500 ring-2 ring-blue-300' : ''}`}
+              className={`block border rounded p-3 my-2 cursor-pointer ${pledge.slots <= 0 ? 'opacity-50 cursor-not-allowed' : ''} ${selectedId === pledge.id ? 'border-teal-500 ring-2 ring-teal-500' : ''}`}
             >
               <input
                 type="radio"
@@ -49,7 +49,7 @@ export default function PledgeModal({ pledges, selectedId, customAmount, onChang
             <button type="button" onClick={onClose} className="flex-1 bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded">
               Cancel
             </button>
-            <button type="submit" className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
+            <button type="submit" className="flex-1 bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded">
               Confirm ${customAmount}
             </button>
           </div>
