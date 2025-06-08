@@ -67,7 +67,13 @@ export default function Crowdfunding() {
         </div>
 
         <div className="my-4 text-3xl text-gray-600 flex flex-col   md:flex-row justify-between items-center md:items-center gap-4 md:text-lg">
-           <p className='font-bold text-black flex flex-col text-center p-2'> ${crowdfundingData.currentFunds.toLocaleString()} <span className='text-sm font-semibold pt-2  text-gray-500'>of ${crowdfundingData.totalFunds.toLocaleString()} </span> </p>
+        <p className='font-bold text-black flex flex-col text-center p-2'>
+  ${fundsRaised.toLocaleString()}
+  <span className='text-sm font-semibold pt-2  text-gray-500'>
+    of ${crowdfundingData.totalFunds.toLocaleString()}
+  </span>
+</p>
+
            <p className='font-bold text-black flex flex-col text-center p-2'> {backers.toLocaleString()} <span className='text-sm font-semibold pt-2 text-gray-500'>total backers</span></p>
         <p className='font-bold text-black flex flex-col text-center p-2'> {crowdfundingData.daysLeft} <span className='text-sm font-semibold pt-2  text-gray-500'>days left</span>
         </p>
